@@ -44,8 +44,9 @@ export default class FilmWebService {
 
                 if (platform) {
                     movieData = {
-                        ...movieData,
+                        title: movieData.title,
                         platform: platform,
+                        rate: movieData.rate,
                     }
                 }
 
@@ -86,6 +87,6 @@ export default class FilmWebService {
 
         const sortedMovies = movies.sort((a, b) => parseFloat(b.rate) - parseFloat(a.rate));
 
-        return await FileService.saveToCSVFile(['title', 'rate', 'platform'], sortedMovies, 'movies');
+        return await FileService.saveToCSVFile(['title', 'VOD service name', 'rate'], sortedMovies, 'movies');
     }
 }
