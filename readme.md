@@ -23,12 +23,21 @@ yarn
 
 ## Usage
 
-1. Run the scraper using the following command:
+1. Run the scraper UI version using the following command:
 
 ```shell
 npm start
 or 
 yarn start
+```
+The webpage will be available at the link http://localhost:3000/
+
+2. Run the scraper demo version that generate report for all platforms, limit - 10, year - 2023:
+
+```shell
+npm run demo
+or 
+yarn demo
 ```
 
 The scraper will download the movie lists from each platform and generate separate output files for each platform in the `uploads` directory.

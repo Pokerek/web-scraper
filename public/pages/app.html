@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>FilmWeb form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div
+      class="container container-md"
+      style="max-width: 500px"
+    >
+      <h1>Generate movies report</h1>
+      <form
+        method="post"
+        action="/"
+      >
+        <div class="mb-3">
+          <label
+            for="platform"
+            class="form-label"
+            >Platform:</label
+          >
+          <select
+            multiple
+            class="form-select"
+            id="platform"
+            name="platform[]"
+            required
+          >
+            <option value="netflix">Netflix</option>
+            <option value="hbo_max">HBO Max</option>
+            <option value="canal_plus_manual">Canal Plus</option>
+            <option value="disney">Disney</option>
+          </select>
+        </div>
+        <div class="d-flex justify-content-start align-items-center mb-3 gap-3">
+          <div>
+            <label
+              for="limit"
+              class="form-label"
+              >Platform limit:</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="limit"
+              name="limit"
+              min="0"
+              max="100"
+            />
+          </div>
+          <div>
+            <label
+              for="year"
+              class="form-label"
+            >
+              Year:
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="year"
+              name="year"
+              min="1888"
+              max="2023"
+              defaultValue=""
+            />
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="orderByRate"
+              name="orderByRate"
+            />
+            <label
+              class="form-check-label"
+              for="orderByRate"
+              >Order By Rate</label
+            >
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Generate report
+        </button>
+      </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

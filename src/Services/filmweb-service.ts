@@ -65,12 +65,18 @@ export default class FilmWebService {
         }
     }
 
-    static createReportByPlatform = async (platforms: Platform[], year: string = CURRENT_YEAR.toString(), limit = 10): Promise<string> => {
+    static createReportByPlatform = async (platforms: Platform[], options: {
+        year?: string,
+        limit?: number,
+        orderByRate?: boolean,
+    }): Promise<string> => {
         const movies: Movie[] = [];
         const uniquesMoviesTitles = new Set();
 
+        const { year = CURRENT_YEAR.toString(), limit = 10, orderByRate = false } = options;
+
         for (const platform of platforms) {
-            const moviesFromPlatform = await FilmWebService.getListOfMovies({ platform, year, limit });
+            const moviesFromPlatform = await FilmWebService.getListOfMovies({ platform, year, limit, orderByRate });
             moviesFromPlatform.forEach(movie => {
                 if (!uniquesMoviesTitles.has(movie.title)) {
                     uniquesMoviesTitles.add(movie.title);
